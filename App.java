@@ -72,6 +72,7 @@ public class App {
                          "1. Show all tasks.\n" +
                          "2. Add new task\n" +
                          "3. Marking a task as resolved\n" +
-                         "4. Delete all complete taskas.\n");
+                         "4. Delete all complete taskas.\n" +
+                         "Press YES - exit.\n");
   }
 }
