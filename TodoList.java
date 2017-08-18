@@ -1,4 +1,5 @@
 import java.util.LinkedList;
+import java.util.ArrayList;
 
 /**
  * Class representing a todo list.
@@ -22,9 +23,9 @@ public class TodoList {
 
     public void deleteCompleteTasks() {
 
-        for (TodoItem task : todoList) {
-            if (task.getIsDone() == true) {
-                todoList.remove(task);
+        for (int i = 0; i < todoList.size(); i++) {
+            if ((todoList.get(i)).getIsDone() == true) {
+                todoList.remove(todoList.get(i));
             }
         }
     }
@@ -53,11 +54,6 @@ public class TodoList {
             if ((task.getTaskName()).equals(taskName)) {
                 task.setIsDone();
             }
-
-            else {
-                System.out.println("There is no task like that, try again.\n");
-            }
-
         }
     }
 

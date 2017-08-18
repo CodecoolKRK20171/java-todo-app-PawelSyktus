@@ -26,6 +26,7 @@ public class App {
           }
 
           else if(userChoice.equals("3")) {
+
             markAsResolved();
           }
 
@@ -60,9 +61,10 @@ public class App {
   }
 
   public static void markAsResolved() {
-      System.out.println();
+      System.out.println("Enter task name to mark as done: ");
       String taskName = input.nextLine();
       taskList.markTaskAsResolved(taskName);
+      System.out.println();
   }
 
   public static void printMenu() {
