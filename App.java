@@ -1,34 +1,68 @@
 import java.util.Scanner;
-
 /**
  * Class representing the TodoApp application.
  * It is the main entry point for this program.
  */
-public class App{
+public class App {
+
+    private static Scanner input = new Scanner(System.in);
+    private static TodoList taskList = new TodoList();
+
   public static void main(String[] args) {
 
       String userChoice = "";
-      Scanner input = new Scanner(System.in);
 
       while(!userChoice.equals("YES")) {
 
           printMenu();
-          userChoice = input.next();
+          userChoice = input.nextLine();
 
-          if (userChoice.equals("1") {
-
+          if (userChoice.equals("1")) {
+            printList();
           }
+
           else if(userChoice.equals("2")) {
-
+            addItem();
           }
-          else if(userChoice.equals("3") {
 
+          else if(userChoice.equals("3")) {
+            markAsResolved();
           }
-          else if(userChoice.equals("4") {
 
+          else if(userChoice.equals("4")) {
+            taskList.deleteCompleteTasks();
           }
 
       }
+  }
+
+  public static void printList() {
+
+      if ((taskList.getTodoList()).isEmpty()) {
+          System.out.println("Task list is empty, add some piece of shit :)\n");
+      }
+
+      else {
+          taskList.showAllTasks();
+          System.out.println();
+      }
+  }
+
+  public static void addItem() {
+
+      System.out.println("Enter task name: ");
+      String taskName = input.nextLine();
+      System.out.println();
+
+      TodoItem task = new TodoItem(taskName);
+
+      taskList.addItemToTheList(task);
+  }
+
+  public static void markAsResolved() {
+      System.out.println();
+      String taskName = input.nextLine();
+      taskList.markTaskAsResolved(taskName);
   }
 
   public static void printMenu() {
@@ -36,6 +70,6 @@ public class App{
                          "1. Show all tasks.\n" +
                          "2. Add new task\n" +
                          "3. Marking a task as resolved\n" +
-                         "4. Delete all complete taskas.\n")
+                         "4. Delete all complete taskas.\n");
   }
 }
