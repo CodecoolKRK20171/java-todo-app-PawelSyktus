@@ -1,5 +1,6 @@
 import java.util.LinkedList;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Class representing a todo list.
@@ -18,15 +19,19 @@ public class TodoList {
     }
 
     public void addItemToTheList(TodoItem task) {
-        todoList.add(task);
+        (this.todoList).add(task);
     }
 
     public void deleteCompleteTasks() {
 
-        for (int i = 0; i < todoList.size(); i++) {
-            if ((todoList.get(i)).getIsDone() == true) {
-                todoList.remove(todoList.get(i));
-            }
+        Iterator<TodoItem> it = (this.todoList).iterator();
+
+        while (it.hasNext()) {
+          TodoItem task = it.next();
+
+          if (task.getIsDone() == true) {
+            it.remove();
+          }
         }
     }
 
